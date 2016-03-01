@@ -11,21 +11,34 @@ Beamer Theme  : singapore
 
 [TOC]
 
-# Nature Language Processing
+## Nature Language Processing
 
-Long long ago, researchers thought that in order to let computer operate tasks like translation,
-we need to teach computer how to interpret nature language.
+At first, researchers use `grammar rules` to parse a sentence.
+![Screen Shot 2016-03-01 at 10.40.26 PM]
 
-However, computer do not need to "understand" nature language. All we do nowadays is using
-mathematics, or statistics more precisely.
+[Screen Shot 2016-03-01 at 10.40.26 PM]: images/Screen-Shot-2016-03-01-at-10.40.26-PM.png "Screen Shot 2016-03-01 at 10.40.26 PM" { width:auto; max-width:90% }
+
+Drawbacks:
+
+* huge computational complexity
+* hard to cover all grammar rules.
+
 
 ## Statistical Language Model
 
-test
+Nowadays, we use mathematics, or statistics more precisely.
+
+$S = w_1,w_2,...,w_n$
 
 ~ Equation
-P(w_1,w_2,...,w_n) = P(w_1)*P(w_2|w_1)...P(w_n|w_1,w_2,...w_{n-1})
+P(S) = P(w_1)*P(w_2|w_1)...P(w_n|w_1,w_2,...w_{n-1})
 ~
+using [Markov Assumption](https://en.wikipedia.org/wiki/Markov_property):
+
+~ Equation {#bigram_model}
+P(S) = P(w_1)*P(w_2|w_1)...P(w_n|w_{n-1})
+~
+Equation [#bigram_model] is called **Bigram Model**.
 
 ## Code
 
