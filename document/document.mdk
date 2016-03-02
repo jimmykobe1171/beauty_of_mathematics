@@ -40,88 +40,20 @@ P(S) = P(w_1)*P(w_2|w_1)...P(w_n|w_{n-1})
 ~
 Equation [#bigram_model] is called **Bigram Model**.
 
-## Code
+## Hidden Markov Model
+![Screen Shot 2016-03-02 at 10.12.18 PM]
 
-Here is code, highlighted by Madoko 
+[Screen Shot 2016-03-02 at 10.12.18 PM]: images/Screen-Shot-2016-03-02-at-10.12.18-PM.png "Screen Shot 2016-03-02 at 10.12.18 PM" { width:auto; max-width:90% }
 
-``` javascript
-function sqr( x ) {
-  var \(&pi;\) = 3.141593;
-  return x*x;  /* the square */
-}
-```
-We used `\(` and `\)` to escape into markdown to write &pi;.
-
-<!-- Example of nested vertical slides -->
-~ Begin Vertical { data-background:Gainsboro }
-
-## Vertical Slides {#vertical}
-Slides can be nested inside of other slides,
-try pressing [down].
-
-[![arrowdown]][down]
+What the hell does such thing can do ?
 
 
-[down]: # { .navigate-down }
-[arrowdown]: images/arrow.png "Down arrow" { width:178px; height:238px }
+## Hidden Markov Model
 
-## Basement Level 1
-Press down or up to navigate.
+* [speech recognition](https://www.ll.mit.edu/publications/journal/pdf/vol03_no1/3.1.3.speechrecognition.pdf)
+* [stock prediction](http://arxiv.org/pdf/1311.4771.pdf)
+* [bioinformatics](http://www.bioss.ac.uk/people/dirk/talks/tutorial_hmm_bioinf.pdf)
 
-## Basement Level 2
-
-Use `columns` to put blocks next to each other:
-
-~ Begin Columns
-~ Column { width:50% }
-A monarch butterfly (shown to the right)
-spends the winter in Mexico.
-~
-~ Column
-![butterfly]
-~
-~ End Columns
-
-[butterfly]: images/butterfly.png "A Monarch butterfly" { width:280px; vertical-align:middle }
-
-
-<!-- 
-For local background images, we need to have a reference to the image
-such that it's data gets embedded into the HTML page. We define
-it using "display=none" so it is hidden in the presentation. 
-We can then refer to the image in "data-background-image". 
--->
-
-![bfly]
-[bfly]: images/butterfly.png "Butterfly" { display:none }
-
-## Basement Level 3 { data-background-image:images/butterfly.png }
-That's it, time to go back up.
-
-[![arrowup]][back2]
-
-[arrowup]:  images/arrow.png "Up arrow" { width:178px; height:238px; transform:rotate(180deg) }
-[back2]:    #vertical { .image }
-
-~ End Vertical
-
-
-## Themes {#themes}
-
-Reveal.js comes with a few themes built in:
-
-* [Default](?#/themes)
-* [Sky](?theme=sky#/themes)
-* [Beige](?theme=beige#/themes)
-* [Serif](?theme=serif#/themes)
-* [Simple](?theme=simple#/themes)
-* [Night](?theme=night#/themes)
-* [Moon](?theme=moon#/themes)
-* [Solarized](?theme=solarized#/themes)
-
-Theme demos are loaded after the presentation which leads to flicker. In
-production you should load your theme in the `<head>` using a
-`<link>`.
 
 ## Transitions { #transitions }
 
