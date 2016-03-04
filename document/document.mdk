@@ -46,7 +46,7 @@ Equation [#bigram_model] is called **Bigram Model**.
 
 [Screen Shot 2016-03-02 at 10.12.18 PM]: images/Screen-Shot-2016-03-02-at-10.12.18-PM.png "Screen Shot 2016-03-02 at 10.12.18 PM" { width:auto; max-width:90% }
 
-What the hell does such thing can do ?
+What the hell could such thing do ?
 
 
 ~ Slide
@@ -95,7 +95,7 @@ calculate a word's TF-IDF.
 
 For each word in the vocabulary list, we can calculate it's TF-IDF. Then, we can get an vector of 50000 TF-IDF values:
 
-$[tf-idf(w_1), tf-idf(w_2),..., tf-idf(w_50000)]$
+$[tf-idf(w_1), tf-idf(w_2),..., tf-idf(w_{50000})]$
 
 Now we successfully change a website into an vector, also called **feature vector**.
 ~
@@ -114,48 +114,48 @@ $\cos\theta=\frac{\vec{v_1}\cdot\vec{v_2}}{|v_1||v_2|}$
 if $\theta=0\degree$, it means the two website have high similarity.
 ~
 
-## Point of View
+## Viterbi and Viterbi Algorithm
 
-In Reveal.js Press **ESC** to enter the slide overview.
-
-Hold down alt and click on any element to zoom in on it using 
- [zoom.js]. Alt + click anywhere to zoom back out.
+The Viterbi algorithm is a dynamic programming algorithm for finding the most likely sequence of hidden states
+in Hidden Markov Model, proposed by [Andrew Viterbi](https://en.wikipedia.org/wiki/Andrew_Viterbi).
 
 
-[zoom.js]: http://lab.hakim.se/zoom-js
+~ Slide
+### Chinese Input Method (拼音输入法)
+
+when we input a series of T characters $y_1,y_2,...,y_T$, we get the corresponding T Chinese word $x_1,x_2,...,x_T$.
+This is a Hidden Markov Model
+
+![Screen Shot 2016-03-02 at 10.12.18 PM]
+
+[Screen Shot 2016-03-02 at 10.12.18 PM]: images/Screen-Shot-2016-03-02-at-10.12.18-PM.png "Screen Shot 2016-03-02 at 10.12.18 PM" { width:auto; max-width:90% }
+
+~
+
+~ Slide
+### Chinese Input Method (拼音输入法)
+
+Input characters $y_1,y_2,...,y_T$ is the observations, Chinese word $x_1,x_2,...,x_T$ is the hidden variables.
+
+The problem is how to find out the most likely combinations $x_1,x_2,...,x_T$. Assume we know the Hidden Markov Model already,
+say state transition probabilities $P(x_{i+1}|x_i)$ and output probabilities $P(y_i|x_i)$.
+~
+
+~ Slide
+### Chinese Input Method (拼音输入法)
+
+The basic solution is to try out all the combinations, for every combinations, we calculate its probability:
+$P(x_1,x_2,...,x_T|y_1,y_2,...,y_T) = \prod_{i=1}^{T}P(y_i|x_i)\cdot P(x_i|x_{i-1})$
+
+Let's do some approximations:
+
+if a sentence contains 10 words, one letter can have 13 possible corresponding Chinese words. Then there are
+$13^{10}\approx5\times10^{14}$ cases. If each case need 20 multiple operations. the computational complexity is about $O(10^{16})$.
+Approximately 1 day for computer to get the result.
+~
+
+~ Slide
+### Viterbi Algorithm
 
 
-## Works in Mobile Safari
-
-Try it out! You can swipe through the slides and pinch your way to the
-overview.
-
-
-## Printing
-
-You can print a `revealjs` presentation nicely from the browser.
-
-First give the `?print-pdf` or `?print-paper` query on your final
-presentation (in the browser address bar) and then print from the Chrome
-browser selecting `Save to PDF`.
-
-Read more about it at the [revealjs documentation](https://github.com/hakimel/reveal.js#pdf-export)
-
-## RevealJS library
-
-Normally, the `revealjs` library is loaded from a CDN but you can specify your
-own url using metadata:
-
-    Reveal Url: <my url>
-
-This can be useful when using a [server to run revealjs](https://github.com/hakimel/reveal.js#full-setup)
-where you may use something like:
-
-    @nopreview Reveal Url: http://localhost:8000/reveal.js
-
-
-## Thanks for looking :-)
-
-[slide]: http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/out/slidedemo.html
-[slide-mdk]: https://www.madoko.net/editor.html?#url=http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/slidedemo.mdk&options={"delayedUpdate":"true"}
-[slide-pdf]: http://research.microsoft.com/en-us/um/people/daan/madoko/samples/slidedemo/out/slidedemo.pdf
+~
