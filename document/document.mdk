@@ -137,6 +137,8 @@ This is a Hidden Markov Model
 
 Input characters $y_1,y_2,...,y_T$ is the observations, Chinese word $x_1,x_2,...,x_T$ is the hidden variables.
 
+![Screen Shot 2016-03-02 at 10.12.18 PM]
+
 The problem is how to find out the most likely combinations $x_1,x_2,...,x_T$. Assume we know the Hidden Markov Model already,
 say state transition probabilities $P(x_{i+1}|x_i)$ and output probabilities $P(y_i|x_i)$.
 ~
@@ -147,15 +149,32 @@ say state transition probabilities $P(x_{i+1}|x_i)$ and output probabilities $P(
 The basic solution is to try out all the combinations, for every combinations, we calculate its probability:
 $P(x_1,x_2,...,x_T|y_1,y_2,...,y_T) = \prod_{i=1}^{T}P(y_i|x_i)\cdot P(x_i|x_{i-1})$
 
+However, the computational complexity of this method is $O(N^T)$, where N is the possible
+state of variable X.
+
+![Screen Shot 2016-03-07 at 9.14.28 PM]
+
+[Screen Shot 2016-03-07 at 9.14.28 PM]: images/Screen-Shot-2016-03-07-at-9.14.28-PM.png "Screen Shot 2016-03-07 at 9.14.28 PM" { width:auto; max-width:90% }
+
+~
+
+~ Slide
+### Viterbi Algorithm
 Let's do some approximations:
 
 if a sentence contains 10 words, one letter can have 13 possible corresponding Chinese words. Then there are
 $13^{10}\approx5\times10^{14}$ cases. If each case need 20 multiple operations. the computational complexity is about $O(10^{16})$.
 Approximately 1 day for computer to get the result.
+
 ~
 
 ~ Slide
 ### Viterbi Algorithm
-
+There are a lot of unnecessary computations. By using [Dynamic Programming](https://en.wikipedia.org/wiki/Dynamic_programming),
+we can decrease the computational complexity to $O(N^2 \cdot T)$. In previous case, it is
+$13\times13\times10\approx10^3$.
+![Screen Shot 2016-03-07 at 9.14.28 PM]
 
 ~
+
+## Thanks for looking :-)
