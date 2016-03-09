@@ -14,7 +14,8 @@ Package: gensymb
 
 ## Nature Language Processing
 
-At first, researchers use `grammar rules` to parse a sentence.
+Before 1990, researchers use `grammar rules` to parse a sentence.
+
 ![Screen Shot 2016-03-01 at 10.40.26 PM]
 
 [Screen Shot 2016-03-01 at 10.40.26 PM]: images/Screen-Shot-2016-03-01-at-10.40.26-PM.png "Screen Shot 2016-03-01 at 10.40.26 PM" { width:auto; max-width:90% }
@@ -92,7 +93,10 @@ in Hidden Markov Model, proposed by [Andrew Viterbi](https://en.wikipedia.org/wi
 ### Chinese Input Method (拼音输入法)
 
 when we input a series of T characters $y_1,y_2,...,y_T$, we get the corresponding T Chinese word $x_1,x_2,...,x_T$.
-This is a Hidden Markov Model
+This is a Hidden Markov Model. Input characters $y_1,y_2,...,y_T$ is the observations,
+Chinese word $x_1,x_2,...,x_T$ is the hidden variables.
+
+For example, we input "tmd", the input method return "他媽的" or "挺忙的" or "挺美的".
 
 ![Screen Shot 2016-03-02 at 10.12.18 PM]
 
@@ -102,12 +106,10 @@ This is a Hidden Markov Model
 ~ Slide
 ### Chinese Input Method (拼音输入法)
 
-Input characters $y_1,y_2,...,y_T$ is the observations, Chinese word $x_1,x_2,...,x_T$ is the hidden variables.
-
-![Screen Shot 2016-03-02 at 10.12.18 PM]
-
 The problem is how to find out the most likely combinations $x_1,x_2,...,x_T$. Assume we know the Hidden Markov Model already,
 say state transition probabilities $P(x_{i+1}|x_i)$ and emission probabilities $P(y_i|x_i)$.
+
+![Screen Shot 2016-03-02 at 10.12.18 PM]
 ~
 
 ~ Slide
@@ -169,7 +171,7 @@ Then, word "math"'s TF-IDF value = $TF\cdot IDF$
 ~ Slide
 ### Construct Feature Vectors
 
-Say we have an vocabulary list(50000 words) $(w_1, w_2,...w_50000)$. let $w_i$ represent the `ith` word, `tf-idf()` represent a function that
+Say we have an vocabulary list(50000 words) $(w_1, w_2,...w_{50000})$. let $w_i$ represent the `ith` word, `tf-idf()` represent a function that
 calculate a word's TF-IDF.
 
 For each word in the vocabulary list, we can calculate it's TF-IDF. Then, we can get an vector of 50000 TF-IDF values:
